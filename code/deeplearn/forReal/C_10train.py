@@ -4,12 +4,12 @@ from torch import nn
 from torch.nn import Conv2d, MaxPool2d, Flatten,Linear,Sequential
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
-from model import *
+from C_10model import *
 
 #设置数据集
-train_data = torchvision.datasets.CIFAR10("./data",train=True,transform=torchvision.transforms.ToTensor(),
+train_data = torchvision.datasets.CIFAR10("../data",train=True,transform=torchvision.transforms.ToTensor(),
                                        download=True)
-test_data = torchvision.datasets.CIFAR10("./data",train=False,transform=torchvision.transforms.ToTensor(),
+test_data = torchvision.datasets.CIFAR10("../data",train=False,transform=torchvision.transforms.ToTensor(),
                                        download=True)
 train_data_size = len(train_data)
 test_data_size = len(test_data)
@@ -28,7 +28,7 @@ total_test_step = 0
 
 epoch = 10
 
-writer = SummaryWriter("./logs")
+writer = SummaryWriter("../logs")
 
 for i in range(epoch):
     print("---------第{}轮训练开始-----------".format(i))
